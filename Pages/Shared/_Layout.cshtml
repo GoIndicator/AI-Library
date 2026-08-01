@@ -1,0 +1,166 @@
+@inject AILibrary.Services.LibraryService LibraryService
+@{
+    var allItems = LibraryService.GetAllItems();
+    var skillsCount = allItems.Count(i => i.Type.Equals("Skill", StringComparison.OrdinalIgnoreCase));
+    var pluginsCount = allItems.Count(i => i.Type.Equals("Plugin", StringComparison.OrdinalIgnoreCase));
+    var edicoesCount = allItems.Count(i => i.Type.Equals("Edicao", StringComparison.OrdinalIgnoreCase));
+    
+    // We can merge with mock values if we want exact match of screenshot numbers
+    var displaySkills = skillsCount > 0 ? skillsCount : 15;
+    var displayPlugins = pluginsCount > 0 ? pluginsCount : 5;
+    var displayFerramentas = 29;
+    var displayTutoriais = 2;
+    var displayCursos = 7;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OMATHEUSDAIA.</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Top Global Header -->
+    <header class="top-navbar">
+        <a class="top-navbar-logo" asp-page="/Index">
+            OMATHEUSDAIA<span>.</span>
+        </a>
+        <div class="top-navbar-actions">
+            <a class="nav-link-item" asp-page="/Index">Biblioteca</a>
+            <span class="user-email">flepka@@gmail.com</span>
+            <button class="logout-btn" onclick="alert('Mock Logout Successful!')">sair</button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-top-content">
+                <div class="sidebar-section">
+                    <div class="sidebar-title">EXPLORAR</div>
+                    <h2 style="font-size: 15px; font-weight: 800; font-family: var(--font-header); letter-spacing: -0.02em; margin-bottom: 1.5rem; text-transform: uppercase;">Biblioteca IA</h2>
+                    <nav class="sidebar-nav">
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Index" ? "active" : "")" asp-page="/Index">
+                            <div class="sidebar-link-content">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                                <span class="sidebar-link-label">Biblioteca</span>
+                            </div>
+                        </a>
+                        
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Skills") == true ? "active" : "")" asp-page="/Skills">
+                            <div class="sidebar-link-content">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                                <span class="sidebar-link-label">Skills</span>
+                            </div>
+                            <span class="sidebar-badge">@displaySkills</span>
+                        </a>
+
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Plugins") == true ? "active" : "")" asp-page="/Plugins">
+                            <div class="sidebar-link-content">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v2a2 2 0 11-4 0V4zM4 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2zM4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
+                                </svg>
+                                <span class="sidebar-link-label">Plugins</span>
+                            </div>
+                            <span class="sidebar-badge">@displayPlugins</span>
+                        </a>
+
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Catalog" && ViewContext.RouteData.Values["catalogType"]?.ToString() == "ferramentas" ? "active" : "")" asp-page="/Catalog" asp-route-catalogType="ferramentas">
+                            <div class="sidebar-link-content">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <span class="sidebar-link-label">Ferramentas</span>
+                            </div>
+                            <span class="sidebar-badge">@displayFerramentas</span>
+                        </a>
+
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Catalog" && ViewContext.RouteData.Values["catalogType"]?.ToString() == "tutoriais" ? "active" : "")" asp-page="/Catalog" asp-route-catalogType="tutoriais">
+                            <div class="sidebar-link-content">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                                <span class="sidebar-link-label">Tutoriais</span>
+                            </div>
+                            <span class="sidebar-badge">@displayTutoriais</span>
+                        </a>
+
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Catalog" && ViewContext.RouteData.Values["catalogType"]?.ToString() == "cursos" ? "active" : "")" asp-page="/Catalog" asp-route-catalogType="cursos">
+                            <div class="sidebar-link-content">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                                </svg>
+                                <span class="sidebar-link-label">Cursos Gratuitos</span>
+                            </div>
+                            <span class="sidebar-badge">@displayCursos</span>
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Sidebar Footer Settings -->
+            <div class="sidebar-footer">
+                <div class="appearance-section">
+                    <div class="appearance-title">Aparência</div>
+                    <div class="theme-switcher-grid">
+                        <button class="theme-btn" data-theme="light" title="Modo Claro">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707-.707m12.728 0l-.707.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10 5 5 0 000-10z" />
+                            </svg>
+                            <span>Claro</span>
+                        </button>
+                        <button class="theme-btn" data-theme="dark" title="Modo Escuro">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                            <span>Escuro</span>
+                        </button>
+                        <button class="theme-btn" data-theme="system" title="Tema do Sistema">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span>Sistema</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="collapse-sidebar-btn">
+                    <span>Recolher</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Viewport -->
+        <main class="main-content">
+            @RenderBody()
+            
+            <!-- Common Footer -->
+            <footer class="global-footer">
+                <div class="footer-inner-content">
+                    <div class="footer-branding">
+                        <div class="footer-logo">OMATHEUSDAIA<span>.</span></div>
+                        <div>IA, agentes e código — direto do meu dia a dia.</div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="https://instagram.com/" target="_blank" class="footer-link-item">INSTAGRAM</a>
+                        <span>© 2026</span>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

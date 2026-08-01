@@ -1,0 +1,118 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Biblioteca IA";
+}
+
+<div class="page-counter">
+    @Model.TotalCount ITENS LIBERADOS
+</div>
+
+<h1 class="page-title">Sua Biblioteca</h1>
+<p class="page-subtitle">Tudo destravado. Busque pelo que precisa ou veja o que entrou por último.</p>
+
+<form method="get" class="search-filter-section">
+    <div class="search-container-box">
+        <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input type="text" name="q" value="@Model.Q" placeholder="Buscar em tudo – edições, skills, plugins, ferramentas..." class="search-input-field" />
+    </div>
+
+    <div class="filter-pills-row">
+        <input type="hidden" id="typeFilterInput" name="typeFilter" value="@Model.TypeFilter" />
+        
+        <button type="button" class="filter-pill-btn @(string.IsNullOrEmpty(Model.TypeFilter) ? "active" : "")" onclick="setFilter('')">
+            Tudo <span class="filter-pill-count">@Model.TotalCount</span>
+        </button>
+        
+        <button type="button" class="filter-pill-btn" onclick="window.location.href='/Catalog/ferramentas'">
+            Ferramentas <span class="filter-pill-count">@Model.FerramentasCount</span>
+        </button>
+
+        <button type="button" class="filter-pill-btn @(Model.TypeFilter == "edicoes" ? "active" : "")" onclick="setFilter('edicoes')">
+            Edições <span class="filter-pill-count">@Model.EdicoesCount</span>
+        </button>
+
+        <button type="button" class="filter-pill-btn @(Model.TypeFilter == "skills" ? "active" : "")" onclick="setFilter('skills')">
+            Skills <span class="filter-pill-count">@Model.SkillsCount</span>
+        </button>
+
+        <button type="button" class="filter-pill-btn" onclick="window.location.href='/Catalog/cursos'">
+            Cursos <span class="filter-pill-count">@Model.CursosCount</span>
+        </button>
+
+        <button type="button" class="filter-pill-btn @(Model.TypeFilter == "plugins" ? "active" : "")" onclick="setFilter('plugins')">
+            Plugins <span class="filter-pill-count">@Model.PluginsCount</span>
+        </button>
+
+        <button type="button" class="filter-pill-btn" onclick="window.location.href='/Catalog/tutoriais'">
+            Tutoriais <span class="filter-pill-count">@Model.TutoriaisCount</span>
+        </button>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Q) || !string.IsNullOrEmpty(Model.TypeFilter))
+{
+    <h2 class="section-divider-title">
+        Resultados da Busca
+        <span class="section-divider-subtitle">@Model.Items.Count itens encontrados</span>
+    </h2>
+}
+else
+{
+    <h2 class="section-divider-title">
+        Recém Adicionado
+        <span class="section-divider-subtitle">o que entrou por último</span>
+    </h2>
+}
+
+<div class="cards-grid-layout">
+    @foreach (var item in Model.Items)
+    {
+        var detailUrl = "/Index";
+        if (item.Type.Equals("Skill", StringComparison.OrdinalIgnoreCase))
+        {
+            detailUrl = $"/Skills/{item.Slug}";
+        }
+        else if (item.Type.Equals("Plugin", StringComparison.OrdinalIgnoreCase))
+        {
+            detailUrl = $"/Plugins/{item.Slug}";
+        }
+        else if (item.Type.Equals("Edicao", StringComparison.OrdinalIgnoreCase))
+        {
+            // Link to the main skill of this edition for demonstration
+            detailUrl = "/Skills/frontend-design";
+        }
+
+        <div class="card-item-container">
+            <div>
+                <div class="card-top-header">
+                    <span class="card-category-badge">@item.Category</span>
+                    @if (item.IsNew)
+                    {
+                        <span class="card-status-badge">NOVO</span>
+                    }
+                </div>
+                <h3 class="card-main-title">@item.Title</h3>
+                <p class="card-description-text">@item.ShortDescription</p>
+            </div>
+            
+            <a href="@detailUrl" class="card-bottom-action">
+                <span>abrir</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="12" height="12">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function setFilter(type) {
+            document.getElementById('typeFilterInput').value = type;
+            document.getElementById('typeFilterInput').form.submit();
+        }
+    </script>
+}

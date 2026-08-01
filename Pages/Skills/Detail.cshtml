@@ -1,0 +1,130 @@
+@page "/Skills/{slug}"
+@model AILibrary.Pages.Skills.DetailModel
+@{
+    ViewData["Title"] = $"{Model.Item.Title} - Skill Detail";
+    
+    var linkLabel = "Guia oficial";
+    if (Model.Item.Type.Equals("Curso", StringComparison.OrdinalIgnoreCase))
+    {
+        linkLabel = "Plataforma oficial";
+    }
+    else if (Model.Item.Type.Equals("Tutorial", StringComparison.OrdinalIgnoreCase))
+    {
+        if (Model.Item.Title.Contains("REGRAS PERMANENTES", StringComparison.OrdinalIgnoreCase))
+            linkLabel = "Arquivo no projeto";
+        else if (Model.Item.Title.Contains("CLARITY", StringComparison.OrdinalIgnoreCase))
+            linkLabel = "Prompt guiado";
+    }
+    else if (!string.IsNullOrEmpty(Model.Item.OfficialLink) && Model.Item.OfficialLink.Contains("github.com"))
+    {
+        linkLabel = "Repositório GitHub";
+    }
+    var methodLabel = $"METODO - {linkLabel.ToUpper()}";
+}
+
+<div class="breadcrumbs-nav-row">
+    <a asp-page="/Skills" class="breadcrumb-back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+        VOLTAR PARA SKILLS
+    </a>
+</div>
+
+<div class="detail-header-badges">
+    <span class="detail-type-badge">SKILL</span>
+    <span class="detail-category-badge">@Model.Item.Category.ToUpper()</span>
+</div>
+
+<h1 class="page-title" style="font-size: 56px; margin-bottom: 0.5rem;">@Model.Item.Title</h1>
+<p class="page-subtitle">@Model.Item.ShortDescription</p>
+
+<div class="detail-layout-container">
+    <!-- Left Main Column -->
+    <div class="detail-column-main">
+        <!-- Resumo Card -->
+        <div class="detail-card">
+            <div class="detail-card-label">RESUMO</div>
+            <p class="detail-card-text" style="font-size: 15px; margin-bottom: 1.5rem;">@Model.Item.Description</p>
+            <div class="card-tags-row" style="margin-bottom: 0;">
+                @foreach (var tag in Model.Item.Tags)
+                {
+                    <span class="card-tag-pill" style="font-size: 11px; padding: 4px 8px; border: 1px solid var(--border-color); background: none; color: var(--text-secondary);">@tag</span>
+                }
+            </div>
+        </div>
+
+        <!-- Método / Guia Card -->
+        @if (Model.Item.MethodSteps != null && Model.Item.MethodSteps.Count > 0)
+        {
+            <div class="detail-card">
+                <div class="detail-card-label">@methodLabel</div>
+                <h3 class="detail-card-title">@(Model.Item.Type.Equals("Curso", StringComparison.OrdinalIgnoreCase) ? "COMO COMEÇAR" : "COMO INSTALAR")</h3>
+                <ol class="detail-guide-list">
+                    @for (int i = 0; i < Model.Item.MethodSteps.Count; i++)
+                    {
+                        <li class="detail-guide-item">
+                            <div class="detail-guide-number">@(i + 1)</div>
+                            <div class="detail-guide-content">@Model.Item.MethodSteps[i]</div>
+                        </li>
+                    }
+                </ol>
+            </div>
+        }
+
+        <!-- Prompt Card -->
+        @if (!string.IsNullOrEmpty(Model.Item.Prompt))
+        {
+            <div class="detail-card prompt-container-card">
+                <div class="prompt-header-row">
+                    <div>
+                        <div class="detail-card-label" style="margin-bottom: 0.25rem;">PROMPT PRONTO</div>
+                        <h3 class="detail-card-title" style="font-size: 18px; margin-bottom: 0;">COLE NO SEU AGENTE</h3>
+                    </div>
+                    <button class="copy-prompt-btn" data-target="promptContentBox">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                        COPIAR PROMPT
+                    </button>
+                </div>
+                <div class="prompt-textarea-container" id="promptContentBox">@Model.Item.Prompt</div>
+            </div>
+        }
+    </div>
+
+    <!-- Right Sidebar Column -->
+    <div class="detail-column-sidebar">
+        <!-- Links Card -->
+        <div class="detail-card">
+            <div class="detail-card-label">LINKS OFICIAIS</div>
+            <div class="official-links-list">
+                @if (!string.IsNullOrEmpty(Model.Item.OfficialLink))
+                {
+                    <a href="@Model.Item.OfficialLink" target="_blank" class="official-link-item-btn">
+                        <span>Fonte oficial</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                }
+                else
+                {
+                    <span class="detail-card-text" style="font-size: 12px; color: var(--text-muted);">Nenhum link externo disponível.</span>
+                }
+            </div>
+        </div>
+
+        <!-- Origem Card -->
+        @if (!string.IsNullOrEmpty(Model.Item.SourceContentTitle))
+        {
+            <div class="detail-card">
+                <div class="detail-card-label">CONTEÚDO DE ORIGEM</div>
+                <p class="source-content-desc">Abra a página original para ver o conteúdo editorial completo.</p>
+                <a href="@Model.Item.SourceContentLink" class="source-content-link-btn">
+                    ✓ @Model.Item.SourceContentTitle
+                </a>
+            </div>
+        }
+    </div>
+</div>

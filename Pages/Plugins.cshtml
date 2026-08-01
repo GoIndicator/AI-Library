@@ -1,0 +1,89 @@
+@page
+@model PluginsModel
+@{
+    ViewData["Title"] = "Plugins - Biblioteca IA";
+}
+
+<div class="page-counter">
+    @Model.Items.Count RECURSOS
+</div>
+
+<h1 class="page-title">Plugins</h1>
+<p class="page-subtitle">Extensões que conectam agentes a novos fluxos, dados e ferramentas.</p>
+
+<form method="get" id="pluginsFilterForm" class="skills-filter-row">
+    <div class="search-container-box">
+        <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input type="text" name="q" value="@Model.Q" placeholder="Buscar em plugins..." class="search-input-field" oninput="debounceSubmit()" />
+    </div>
+
+    <div>
+        <select name="category" class="category-select-dropdown" onchange="this.form.submit()">
+            <option value="">Todas as categorias</option>
+            @foreach (var cat in Model.Categories)
+            {
+                <option value="@cat" selected="@(Model.Category == cat ? "selected" : null)">@cat</option>
+            }
+        </select>
+    </div>
+</form>
+
+<div class="section-divider-title" style="font-size: 14px; margin-bottom: 2rem;">
+    @Model.Items.Count resultados
+</div>
+
+<div class="cards-grid-layout">
+    @foreach (var item in Model.Items)
+    {
+        var detailUrl = $"/Plugins/{item.Slug}";
+        
+        var linkLabel = "Guia oficial";
+        if (item.Title.Equals("CLAUDE LOOPS PACK", StringComparison.OrdinalIgnoreCase))
+        {
+            linkLabel = "Comando npx";
+        }
+
+        <div class="card-item-container" style="min-height: 220px;">
+            <div>
+                <div class="card-top-header">
+                    <span class="card-category-badge">@item.Category</span>
+                    <a href="@detailUrl" class="card-link-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </div>
+                <h3 class="card-main-title">@item.Title</h3>
+                <p class="card-description-text" style="font-size: 12px; margin-bottom: 1rem;">@item.ShortDescription</p>
+                
+                <div class="card-tags-row">
+                    @foreach (var tag in item.Tags)
+                    {
+                        <span class="card-tag-pill">@tag</span>
+                    }
+                </div>
+            </div>
+            
+            <a href="@detailUrl" class="card-bottom-action">
+                <span>@linkLabel • abrir ficha</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="12" height="12">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        let timer;
+        function debounceSubmit() {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                document.getElementById('pluginsFilterForm').submit();
+            }, 600);
+        }
+    </script>
+}
