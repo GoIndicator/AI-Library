@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bPVQk6Vip2FK/pGhbUGIfO2dfrcrK28OU98gsdc0sU0=",
+  "Hash": "B9GT8qBna31YNZhSzU2rXFKg1JwEv8poGk/3K9w0mWQ=",
   "Source": "AILibrary",
   "BasePath": "_content/AILibrary",
   "Mode": "Default",
@@ -458,12 +458,12 @@
       "OriginalItemSpec": "/Users/flaviolepka/AI-Library/wwwroot/js/site.js"
     },
     {
-      "Identity": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-f5ke034ge3.gz",
+      "Identity": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-1926qf08ys.gz",
       "SourceId": "AILibrary",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/AILibrary",
-      "RelativePath": "css/site#[.{fingerprint=f5ke034ge3}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=1926qf08ys}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -472,8 +472,8 @@
       "RelatedAsset": "/Users/flaviolepka/AI-Library/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "qiwoyy6idk",
-      "Integrity": "XjvV47NW9M2iS3gh4l8m4DbI+bww71uejM/N5atnCaU=",
+      "Fingerprint": "vrljmxsbwf",
+      "Integrity": "BZHwH/4iepSDKRDkcjiCyakgT1BG8osxSa+2ehNFFlg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/flaviolepka/AI-Library/wwwroot/css/site.css"
@@ -1438,8 +1438,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "f5ke034ge3",
-      "Integrity": "g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw=",
+      "Fingerprint": "1926qf08ys",
+      "Integrity": "G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -3366,13 +3366,13 @@
       ]
     },
     {
-      "Route": "css/site.css",
-      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-f5ke034ge3.gz",
+      "Route": "css/site.1926qf08ys.css",
+      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-1926qf08ys.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000251382604"
+          "Quality": "0.000211014982"
         }
       ],
       "ResponseHeaders": [
@@ -3382,19 +3382,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3977"
+          "Value": "4738"
         },
         {
           "Name": "ETag",
-          "Value": "\"XjvV47NW9M2iS3gh4l8m4DbI+bww71uejM/N5atnCaU=\""
+          "Value": "\"BZHwH/4iepSDKRDkcjiCyakgT1BG8osxSa+2ehNFFlg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 01 Aug 2026 12:16:37 GMT"
+          "Value": "Sun, 02 Aug 2026 00:33:52 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -3410,18 +3410,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw=\""
+          "Value": "W/\"G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "1926qf08ys"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw="
+          "Value": "sha256-G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s="
         }
       ]
     },
     {
-      "Route": "css/site.css",
+      "Route": "css/site.1926qf08ys.css",
       "AssetFile": "/Users/flaviolepka/AI-Library/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3431,7 +3439,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21444"
+          "Value": "26839"
         },
         {
           "Name": "Content-Type",
@@ -3439,121 +3447,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw=\""
+          "Value": "\"G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 01 Aug 2026 12:16:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-f5ke034ge3.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3977"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XjvV47NW9M2iS3gh4l8m4DbI+bww71uejM/N5atnCaU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 01 Aug 2026 12:16:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-XjvV47NW9M2iS3gh4l8m4DbI+bww71uejM/N5atnCaU="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.f5ke034ge3.css",
-      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-f5ke034ge3.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000251382604"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3977"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XjvV47NW9M2iS3gh4l8m4DbI+bww71uejM/N5atnCaU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 01 Aug 2026 12:16:37 GMT"
+          "Value": "Sun, 02 Aug 2026 00:33:52 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f5ke034ge3"
+          "Value": "1926qf08ys"
         },
         {
           "Name": "label",
@@ -3561,13 +3469,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw="
+          "Value": "sha256-G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s="
         }
       ]
     },
     {
-      "Route": "css/site.f5ke034ge3.css",
-      "AssetFile": "/Users/flaviolepka/AI-Library/wwwroot/css/site.css",
+      "Route": "css/site.1926qf08ys.css.gz",
+      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-1926qf08ys.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3576,7 +3484,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21444"
+          "Value": "4738"
         },
         {
           "Name": "Content-Type",
@@ -3584,56 +3492,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw=\""
+          "Value": "\"BZHwH/4iepSDKRDkcjiCyakgT1BG8osxSa+2ehNFFlg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 01 Aug 2026 12:16:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "f5ke034ge3"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-g4n0WPzaV9QIOMlYGF5g8EuEiDTxufFhffjJE1i4pWw="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.f5ke034ge3.css.gz",
-      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-f5ke034ge3.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3977"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XjvV47NW9M2iS3gh4l8m4DbI+bww71uejM/N5atnCaU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 01 Aug 2026 12:16:37 GMT"
+          "Value": "Sun, 02 Aug 2026 00:33:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3651,7 +3514,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f5ke034ge3"
+          "Value": "1926qf08ys"
         },
         {
           "Name": "label",
@@ -3659,7 +3522,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-XjvV47NW9M2iS3gh4l8m4DbI+bww71uejM/N5atnCaU="
+          "Value": "sha256-BZHwH/4iepSDKRDkcjiCyakgT1BG8osxSa+2ehNFFlg="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-1926qf08ys.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000211014982"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4738"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BZHwH/4iepSDKRDkcjiCyakgT1BG8osxSa+2ehNFFlg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Aug 2026 00:33:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "/Users/flaviolepka/AI-Library/wwwroot/css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26839"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Aug 2026 00:33:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-G7mt68NRF/iErbV5GYrUDK9PTi9XES1O/11H3SDhL3s="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-1926qf08ys.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4738"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BZHwH/4iepSDKRDkcjiCyakgT1BG8osxSa+2ehNFFlg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 02 Aug 2026 00:33:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BZHwH/4iepSDKRDkcjiCyakgT1BG8osxSa+2ehNFFlg="
         }
       ]
     },

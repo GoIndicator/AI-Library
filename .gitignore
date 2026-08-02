@@ -1,0 +1,41 @@
+# ==========================================
+# Compilação e Build (Essenciais)
+# ==========================================
+[Bb]in/
+[Oo]bj/
+
+# ==========================================
+# Configurações de Ambiente e Segredos
+# ==========================================
+.env
+.env.*
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ==========================================
+# Visual Studio Code
+# ==========================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# ==========================================
+# macOS (Arquivos de Sistema)
+# ==========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ==========================================
+# Logs e Arquivos Temporários
+# ==========================================
+*.log
+*.cache
+*.tmp
+*.bak
+*.swp

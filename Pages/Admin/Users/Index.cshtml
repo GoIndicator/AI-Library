@@ -1,0 +1,128 @@
+@page
+@model AILibrary.Pages.Admin.Users.IndexModel
+@{
+    ViewData["Title"] = "Gerenciar Usuários";
+}
+
+<div class="admin-section-header">
+    <div>
+        <h1 class="page-title" style="font-size: 32px; margin-bottom: 0.25rem;">Gerenciar Usuários</h1>
+        <p style="color: var(--text-secondary); font-size: 13px;">Cadastro e gerenciamento de credenciais e permissões de acesso.</p>
+    </div>
+    <a asp-page="./Edit" class="admin-btn admin-btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 14px; height: 14px;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+        </svg>
+        Novo Usuário
+    </a>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="admin-alert admin-alert-success">
+        ✓ @Model.SuccessMessage
+    </div>
+}
+
+<div style="margin-bottom: 1.5rem;">
+    <form method="get" style="display: flex; gap: 0.75rem;">
+        <input type="text" name="SearchQuery" value="@Model.SearchQuery" class="form-control" placeholder="Buscar por username ou email..." style="max-width: 400px;" autocomplete="off" />
+        <button type="submit" class="admin-btn admin-btn-secondary">Buscar</button>
+        @if (!string.IsNullOrEmpty(Model.SearchQuery))
+        {
+            <a asp-page="./Index" class="admin-btn admin-btn-secondary" style="border: none;">Limpar</a>
+        }
+    </form>
+</div>
+
+<div class="admin-table-container">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th style="width: 80px;">ID</th>
+                <th>Nome de Usuário</th>
+                <th>Email</th>
+                <th>Tipo de Usuário</th>
+                <th style="width: 200px; text-align: right;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Users.Any())
+            {
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                        Nenhum usuário cadastrado.
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model.Users)
+                {
+                    <tr>
+                        <td style="font-family: var(--font-mono); font-weight: 700; color: var(--accent);">#@item.Id</td>
+                        <td style="font-weight: 600; color: var(--text-primary);">@item.Username</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <span class="detail-category-badge" style="font-size: 10px; padding: 0.2rem 0.5rem; text-transform: uppercase;">
+                                @item.UserType
+                            </span>
+                        </td>
+                        <td>
+                            <div class="admin-actions-cell" style="justify-content: flex-end;">
+                                <a asp-page="./Edit" asp-route-id="@item.Id" class="admin-btn admin-btn-secondary admin-btn-sm">
+                                    Editar
+                                </a>
+                                <a asp-page="./Delete" asp-route-id="@item.Id" class="admin-btn admin-btn-danger admin-btn-sm">
+                                    Excluir
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (Model.TotalPages > 1)
+{
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; margin-bottom: 2rem;">
+        <span style="color: var(--text-secondary); font-size: 13px;">
+            Página <strong>@Model.PageNum</strong> de @Model.TotalPages
+        </span>
+        <div style="display: flex; gap: 0.5rem;">
+            @if (Model.HasPreviousPage)
+            {
+                <a asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)" asp-route-SearchQuery="@Model.SearchQuery" class="admin-btn admin-btn-secondary admin-btn-sm">
+                    ← Anterior
+                </a>
+            }
+            else
+            {
+                <button class="admin-btn admin-btn-secondary admin-btn-sm" disabled style="opacity: 0.4; cursor: not-allowed;">
+                    ← Anterior
+                </button>
+            }
+
+            @if (Model.HasNextPage)
+            {
+                <a asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)" asp-route-SearchQuery="@Model.SearchQuery" class="admin-btn admin-btn-secondary admin-btn-sm">
+                    Próxima →
+                </a>
+            }
+            else
+            {
+                <button class="admin-btn admin-btn-secondary admin-btn-sm" disabled style="opacity: 0.4; cursor: not-allowed;">
+                    Próxima →
+                </button>
+            }
+        </div>
+    </div>
+}
+
+<div style="margin-top: 1.5rem;">
+    <a asp-page="/Admin/Index" class="admin-btn admin-btn-secondary">
+        ← Voltar ao Painel
+    </a>
+</div>

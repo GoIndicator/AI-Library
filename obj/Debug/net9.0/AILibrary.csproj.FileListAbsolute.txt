@@ -33,7 +33,6 @@
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/scopedcss/Pages/Shared/_Layout.cshtml.rz.scp.css
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/scopedcss/bundle/AILibrary.styles.css
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/scopedcss/projectbundle/AILibrary.bundle.scp.css
-/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-f5ke034ge3.gz
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/qz6g2xnyun-wjk9qu5ape.gz
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/uey6vgddbx-61n19gt1b8.gz
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dlt9fvydxo-s1ekmzwjfw.gz
@@ -113,3 +112,4 @@
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/AILibrary.pdb
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/AILibrary.genruntimeconfig.cache
 /Users/flaviolepka/AI-Library/obj/Debug/net9.0/ref/AILibrary.dll
+/Users/flaviolepka/AI-Library/obj/Debug/net9.0/compressed/dvdh8icjww-1926qf08ys.gz

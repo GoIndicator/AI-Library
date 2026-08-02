@@ -1,0 +1,126 @@
+@page "{id:long?}"
+@model AILibrary.Pages.Admin.Library.EditModel
+@{
+    ViewData["Title"] = Model.IsEditMode ? "Editar Recurso" : "Novo Recurso";
+}
+
+<div class="admin-section-header" style="max-width: 850px; margin: 0 auto 2rem;">
+    <div>
+        <h1 class="page-title" style="font-size: 32px; margin-bottom: 0.25rem;">@(Model.IsEditMode ? "Editar Recurso" : "Novo Recurso")</h1>
+        <p style="color: var(--text-secondary); font-size: 13px;">Preencha a ficha do recurso para publicação no catálogo.</p>
+    </div>
+</div>
+
+<div class="admin-form-container" style="max-width: 850px;">
+    <form method="post">
+        <input type="hidden" asp-for="Input.Id" />
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="form-group">
+                <label asp-for="Input.Title" class="form-label"></label>
+                <input asp-for="Input.Title" class="form-control" placeholder="Ex: Notion MCP Server" />
+                <span asp-validation-for="Input.Title" class="validation-error-msg"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.Slug" class="form-label"></label>
+                <input asp-for="Input.Slug" class="form-control" placeholder="Ex: notion-mcp" />
+                <span asp-validation-for="Input.Slug" class="validation-error-msg"></span>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="form-group">
+                <label asp-for="Input.ItemCode" class="form-label"></label>
+                <input asp-for="Input.ItemCode" class="form-control" placeholder="Ex: notion-mcp" />
+                <span asp-validation-for="Input.ItemCode" class="validation-error-msg"></span>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: flex-end; padding-bottom: 0.75rem;">
+                <label class="form-checkbox-container">
+                    <input type="checkbox" asp-for="Input.IsNew" />
+                    <span class="form-checkbox-label">@Html.DisplayNameFor(m => m.Input.IsNew)</span>
+                </label>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="form-group">
+                <label asp-for="Input.TypeId" class="form-label"></label>
+                <select asp-for="Input.TypeId" asp-items="Model.TypesList" class="form-control">
+                    <option value="">-- Selecione o Tipo --</option>
+                </select>
+                <span asp-validation-for="Input.TypeId" class="validation-error-msg"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.CategoryId" class="form-label"></label>
+                <select asp-for="Input.CategoryId" asp-items="Model.CategoriesList" class="form-control">
+                    <option value="">-- Selecione a Categoria --</option>
+                </select>
+                <span asp-validation-for="Input.CategoryId" class="validation-error-msg"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.ShortDescription" class="form-label"></label>
+            <input asp-for="Input.ShortDescription" class="form-control" placeholder="Breve frase descritiva que aparece no card..." />
+            <span asp-validation-for="Input.ShortDescription" class="validation-error-msg"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.Description" class="form-label"></label>
+            <textarea asp-for="Input.Description" class="form-control" rows="6" placeholder="Descrição detalhada em Markdown ou HTML..." style="resize: vertical;"></textarea>
+            <span asp-validation-for="Input.Description" class="validation-error-msg"></span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="form-group">
+                <label asp-for="Input.OfficialLink" class="form-label"></label>
+                <input asp-for="Input.OfficialLink" class="form-control" placeholder="https://github.com/..." />
+                <span asp-validation-for="Input.OfficialLink" class="validation-error-msg"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.TagsInput" class="form-label"></label>
+                <input asp-for="Input.TagsInput" class="form-control" placeholder="Produtividade, MCP, Markdown..." />
+                <span asp-validation-for="Input.TagsInput" class="validation-error-msg"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.MethodStepsInput" class="form-label"></label>
+            <textarea asp-for="Input.MethodStepsInput" class="form-control" rows="4" placeholder="Adicione os passos do método (um por linha)..." style="resize: vertical; font-family: var(--font-body);"></textarea>
+            <span asp-validation-for="Input.MethodStepsInput" class="validation-error-msg"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.Prompt" class="form-label"></label>
+            <textarea asp-for="Input.Prompt" class="form-control" rows="8" placeholder="Escreva o prompt pronto ou código..." style="resize: vertical; font-family: var(--font-mono);"></textarea>
+            <span asp-validation-for="Input.Prompt" class="validation-error-msg"></span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dotted var(--border-color);">
+            <div class="form-group">
+                <label asp-for="Input.SourceContentTitle" class="form-label"></label>
+                <input asp-for="Input.SourceContentTitle" class="form-control" placeholder="Ex: Repositório GitHub" />
+                <span asp-validation-for="Input.SourceContentTitle" class="validation-error-msg"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.SourceContentLink" class="form-label"></label>
+                <input asp-for="Input.SourceContentLink" class="form-control" placeholder="https://..." />
+                <span asp-validation-for="Input.SourceContentLink" class="validation-error-msg"></span>
+            </div>
+        </div>
+
+        <div class="form-actions-row">
+            <a asp-page="./Index" class="admin-btn admin-btn-secondary">Cancelar</a>
+            <button type="submit" class="admin-btn admin-btn-primary">Salvar Alterações</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

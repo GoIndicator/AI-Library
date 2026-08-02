@@ -29,8 +29,6 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     try
     {
-        // Force recreate database with correct int8 identity id column and lowercase tables mappings
-        context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
         // Seed if empty
@@ -114,6 +112,46 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRouting();
+
+// Custom Authentication Gate Middleware
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value?.ToLowerInvariant() ?? "";
+    
+    // Ignore static files, login page, or error page
+    if (path.StartsWith("/css") || 
+        path.StartsWith("/js") || 
+        path.StartsWith("/lib") || 
+        path.StartsWith("/data") || 
+        path.StartsWith("/favicon.ico") || 
+        path == "/login" || 
+        path == "/error")
+    {
+        await next();
+        return;
+    }
+    
+    // Check if the user email cookie is present
+    if (!context.Request.Cookies.TryGetValue("UserEmail", out var userEmail) || string.IsNullOrWhiteSpace(userEmail))
+    {
+        context.Response.Redirect("/login");
+        return;
+    }
+    
+    // Admin role check
+    if (path.StartsWith("/admin"))
+    {
+        var db = context.RequestServices.GetRequiredService<AppDbContext>();
+        var user = await db.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == userEmail.ToLower());
+        if (user == null || (user.UserType.ToLower() != "admin" && user.UserType.ToLower() != "owner"))
+        {
+            context.Response.Redirect("/");
+            return;
+        }
+    }
+    
+    await next();
+});
 
 app.UseAuthorization();
 

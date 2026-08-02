@@ -1,0 +1,76 @@
+@page
+@model AILibrary.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Painel de Administração";
+}
+
+<div class="admin-section-header">
+    <div>
+        <h1 class="page-title" style="font-size: 32px; margin-bottom: 0.25rem;">Painel do Backoffice</h1>
+        <p style="color: var(--text-secondary); font-size: 13px;">Selecione uma tabela abaixo para gerenciar registros e conteúdo.</p>
+    </div>
+</div>
+
+<div class="admin-dashboard-grid">
+    <!-- Card tblLibrary -->
+    <div class="admin-dash-card">
+        <div>
+            <div class="admin-dash-label">Biblioteca</div>
+            <div class="admin-dash-val">@Model.LibraryCount</div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 1.5rem; text-transform: none;">
+                Gerenciamento de recursos da biblioteca, prompts de integração, links externos, tags e descrições.
+            </p>
+        </div>
+        <a asp-page="/Admin/Library/Index" class="admin-btn admin-btn-primary" style="width: 100%;">
+            Gerenciar Recursos
+        </a>
+    </div>
+
+    <!-- Card tbllibrary_type -->
+    <div class="admin-dash-card">
+        <div>
+            <div class="admin-dash-label">Tipos</div>
+            <div class="admin-dash-val">@Model.TypesCount</div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 1.5rem; text-transform: none;">
+                Gerenciamento dos tipos estruturais de conteúdo (Skill, Plugin, Ferramenta, Curso, Tutorial).
+            </p>
+        </div>
+        <a asp-page="/Admin/Types/Index" class="admin-btn admin-btn-secondary" style="width: 100%;">
+            Gerenciar Tipos
+        </a>
+    </div>
+
+    <!-- Card tbllibrary_category -->
+    <div class="admin-dash-card">
+        <div>
+            <div class="admin-dash-label">Categoria</div>
+            <div class="admin-dash-val">@Model.CategoriesCount</div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 1.5rem; text-transform: none;">
+                Gerenciamento das áreas temáticas e filtros de categoria associados às ferramentas e habilidades.
+            </p>
+        </div>
+        <a asp-page="/Admin/Categories/Index" class="admin-btn admin-btn-secondary" style="width: 100%;">
+            Gerenciar Categorias
+        </a>
+    </div>
+
+    <!-- Card tblusers -->
+    <div class="admin-dash-card">
+        <div>
+            <div class="admin-dash-label">Usuários</div>
+            <div class="admin-dash-val">@Model.UsersCount</div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 1.5rem; text-transform: none;">
+                Gerenciamento de contas de usuários, endereços de e-mail e níveis de acesso (admin, member, developer).
+            </p>
+        </div>
+        <a asp-page="/Admin/Users/Index" class="admin-btn admin-btn-secondary" style="width: 100%;">
+            Gerenciar Usuários
+        </a>
+    </div>
+</div>
+
+<div style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+    <a asp-page="/Index" class="admin-btn admin-btn-secondary">
+        ← Ir para a Biblioteca Pública
+    </a>
+</div>

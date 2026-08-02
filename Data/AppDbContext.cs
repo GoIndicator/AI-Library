@@ -12,6 +12,7 @@ namespace AILibrary.Data
         public DbSet<LibraryItem> tblLibrary { get; set; }
         public DbSet<LibraryType> LibraryTypes { get; set; }
         public DbSet<LibraryCategory> LibraryCategories { get; set; }
+        public DbSet<DatabaseUser> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -67,6 +68,19 @@ namespace AILibrary.Data
                 // Map primitive collections
                 entity.Property(e => e.Tags);
                 entity.Property(e => e.MethodSteps);
+            });
+
+            // Configure tblusers
+            modelBuilder.Entity<DatabaseUser>(entity =>
+            {
+                entity.ToTable("tblusers");
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnName("iduser")
+                      .UseIdentityAlwaysColumn()
+                      .HasIdentityOptions(startValue: 1);
+                entity.Property(e => e.Username).HasColumnName("username");
+                entity.Property(e => e.Email).HasColumnName("email");
+                entity.Property(e => e.UserType).HasColumnName("usertype");
             });
         }
     }

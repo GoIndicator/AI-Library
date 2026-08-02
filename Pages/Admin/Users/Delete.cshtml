@@ -1,0 +1,30 @@
+@page "{id:long}"
+@model AILibrary.Pages.Admin.Users.DeleteModel
+@{
+    ViewData["Title"] = "Excluir Usuário";
+}
+
+<div class="admin-section-header" style="max-width: 600px; margin: 0 auto 2rem;">
+    <div>
+        <h1 class="page-title" style="font-size: 32px; margin-bottom: 0.25rem; color: #ef4444;">Excluir Usuário?</h1>
+        <p style="color: var(--text-secondary); font-size: 13px;">Tem certeza de que deseja excluir este usuário permanentemente?</p>
+    </div>
+</div>
+
+<div class="admin-form-container" style="max-width: 600px;">
+    <div style="margin-bottom: 2rem; border-left: 3px solid var(--accent); padding-left: 1rem;">
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 0.5rem; text-transform: none;">@Model.DatabaseUser.Username</h2>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 1rem;">Email: @Model.DatabaseUser.Email</p>
+        <span class="detail-category-badge" style="font-size: 10px; padding: 0.2rem 0.5rem;">
+            @Model.DatabaseUser.UserType.ToUpper()
+        </span>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="DatabaseUser.Id" />
+        <div class="form-actions-row" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <a asp-page="./Index" class="admin-btn admin-btn-secondary">Não, cancelar</a>
+            <button type="submit" class="admin-btn admin-btn-danger">Sim, excluir permanentemente</button>
+        </div>
+    </form>
+</div>

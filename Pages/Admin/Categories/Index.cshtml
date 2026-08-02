@@ -1,0 +1,82 @@
+@page
+@model AILibrary.Pages.Admin.Categories.IndexModel
+@{
+    ViewData["Title"] = "Gerenciar Categorias";
+}
+
+<div class="admin-section-header">
+    <div>
+        <h1 class="page-title" style="font-size: 32px; margin-bottom: 0.25rem;">Gerenciar Categorias</h1>
+        <p style="color: var(--text-secondary); font-size: 13px;">Cadastro de categorias temáticas para organizar a biblioteca.</p>
+    </div>
+    <a asp-page="./Edit" class="admin-btn admin-btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 14px; height: 14px;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+        </svg>
+        Nova Categoria
+    </a>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="admin-alert admin-alert-success">
+        ✓ @Model.SuccessMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="admin-alert admin-alert-danger">
+        ⚠ @Model.ErrorMessage
+    </div>
+}
+
+<div class="admin-table-container">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th style="width: 80px;">ID</th>
+                <th>Nome da Categoria</th>
+                <th style="width: 200px; text-align: right;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Categories.Any())
+            {
+                <tr>
+                    <td colspan="3" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                        Nenhuma categoria cadastrada.
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model.Categories)
+                {
+                    <tr>
+                        <td style="font-family: var(--font-mono); font-weight: 700; color: var(--accent);">#@item.Id</td>
+                        <td style="font-weight: 600; color: var(--text-primary);">@item.Name</td>
+                        <td>
+                            <div class="admin-actions-cell" style="justify-content: flex-end;">
+                                <a asp-page="./Edit" asp-route-id="@item.Id" class="admin-btn admin-btn-secondary admin-btn-sm">
+                                    Editar
+                                </a>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Deseja realmente excluir a categoria \'@item.Name\'?');" style="display:inline;">
+                                    <button type="submit" class="admin-btn admin-btn-danger admin-btn-sm">
+                                        Excluir
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div style="margin-top: 1.5rem;">
+    <a asp-page="/Admin/Index" class="admin-btn admin-btn-secondary">
+        ← Voltar ao Painel
+    </a>
+</div>

@@ -1,0 +1,31 @@
+@page "{id:long}"
+@model AILibrary.Pages.Admin.Library.DeleteModel
+@{
+    ViewData["Title"] = "Excluir Recurso";
+}
+
+<div class="admin-section-header" style="max-width: 600px; margin: 0 auto 2rem;">
+    <div>
+        <h1 class="page-title" style="font-size: 32px; margin-bottom: 0.25rem; color: #ef4444;">Excluir Recurso?</h1>
+        <p style="color: var(--text-secondary); font-size: 13px;">Tem certeza de que deseja excluir este recurso permanentemente?</p>
+    </div>
+</div>
+
+<div class="admin-form-container" style="max-width: 600px;">
+    <div style="margin-bottom: 2rem; border-left: 3px solid var(--accent); padding-left: 1rem;">
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 0.5rem; text-transform: none;">@Model.Item.Title</h2>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 1rem;">@Model.Item.ShortDescription</p>
+        <div style="display: flex; gap: 0.5rem;">
+            <span class="detail-type-badge">@Model.Item.Type.ToUpper()</span>
+            <span class="detail-category-badge">@Model.Item.Category.ToUpper()</span>
+        </div>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="Item.Id" />
+        <div class="form-actions-row" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <a asp-page="./Index" class="admin-btn admin-btn-secondary">Não, cancelar</a>
+            <button type="submit" class="admin-btn admin-btn-danger">Sim, excluir permanentemente</button>
+        </div>
+    </form>
+</div>

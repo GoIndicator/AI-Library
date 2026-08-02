@@ -1,4 +1,5 @@
 @inject AILibrary.Services.LibraryService LibraryService
+@inject AILibrary.Data.AppDbContext DbContext
 @{
     var allItems = LibraryService.GetAllItems();
     var skillsCount = allItems.Count(i => i.Type.Equals("Skill", StringComparison.OrdinalIgnoreCase));
@@ -11,25 +12,47 @@
     var displayFerramentas = 29;
     var displayTutoriais = 2;
     var displayCursos = 7;
+
+    string userName = "";
+    bool isAdmin = false;
+    if (Context.Request.Cookies.TryGetValue("UserEmail", out var userEmailVal) && !string.IsNullOrWhiteSpace(userEmailVal))
+    {
+        var dbUser = DbContext.Users.FirstOrDefault(u => u.Email.ToLower() == userEmailVal.ToLower());
+        if (dbUser != null)
+        {
+            userName = dbUser.Username;
+            if (dbUser.UserType.ToLower() == "admin" || dbUser.UserType.ToLower() == "owner")
+            {
+                isAdmin = true;
+            }
+        }
+        else
+        {
+            userName = userEmailVal.Split('@')[0];
+        }
+    }
 }
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OMATHEUSDAIA.</title>
+    <title>@ViewData["Title"] - AI-GoIndicator.</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <!-- Top Global Header -->
     <header class="top-navbar">
         <a class="top-navbar-logo" asp-page="/Index">
-            OMATHEUSDAIA<span>.</span>
+            AI-GoIndicator<span>.</span>
         </a>
         <div class="top-navbar-actions">
             <a class="nav-link-item" asp-page="/Index">Biblioteca</a>
-            <span class="user-email">flepka@@gmail.com</span>
-            <button class="logout-btn" onclick="alert('Mock Logout Successful!')">sair</button>
+            @if (!string.IsNullOrEmpty(userName))
+            {
+                <span class="user-email">@userName</span>
+                <a class="logout-btn" href="/Login?handler=Logout" style="text-decoration: none; display: inline-block;">sair</a>
+            }
         </div>
     </header>
 
@@ -103,6 +126,24 @@
 
                     </nav>
                 </div>
+
+                @if (isAdmin)
+                {
+                    <div class="sidebar-section" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <div class="sidebar-title">GERENCIAR</div>
+                        <nav class="sidebar-nav">
+                            <a class="sidebar-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin") == true ? "active" : "")" asp-page="/Admin/Index">
+                                <div class="sidebar-link-content">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span class="sidebar-link-label">Painel Admin</span>
+                                </div>
+                            </a>
+                        </nav>
+                    </div>
+                }
             </div>
             
             <!-- Sidebar Footer Settings -->
@@ -148,11 +189,10 @@
             <footer class="global-footer">
                 <div class="footer-inner-content">
                     <div class="footer-branding">
-                        <div class="footer-logo">OMATHEUSDAIA<span>.</span></div>
+                        <div class="footer-logo">AI-GoIndicator<span>.</span></div>
                         <div>IA, agentes e código — direto do meu dia a dia.</div>
                     </div>
                     <div class="footer-links">
-                        <a href="https://instagram.com/" target="_blank" class="footer-link-item">INSTAGRAM</a>
                         <span>© 2026</span>
                     </div>
                 </div>

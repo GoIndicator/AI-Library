@@ -1,0 +1,50 @@
+@page "{id:long?}"
+@model AILibrary.Pages.Admin.Users.EditModel
+@{
+    ViewData["Title"] = Model.IsEditMode ? "Editar Usuário" : "Novo Usuário";
+}
+
+<div class="admin-section-header" style="max-width: 800px; margin: 0 auto 2rem;">
+    <div>
+        <h1 class="page-title" style="font-size: 32px; margin-bottom: 0.25rem;">@(Model.IsEditMode ? "Editar Usuário" : "Novo Usuário")</h1>
+        <p style="color: var(--text-secondary); font-size: 13px;">Preencha os dados cadastrais do usuário abaixo.</p>
+    </div>
+</div>
+
+<div class="admin-form-container">
+    <form method="post">
+        <input type="hidden" asp-for="Input.Id" />
+
+        <div class="form-group">
+            <label asp-for="Input.Username" class="form-label"></label>
+            <input asp-for="Input.Username" class="form-control" placeholder="Ex: joaosilva" autocomplete="off" autofocus />
+            <span asp-validation-for="Input.Username" class="validation-error-msg"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.Email" class="form-label"></label>
+            <input asp-for="Input.Email" class="form-control" placeholder="Ex: joao@email.com" autocomplete="off" />
+            <span asp-validation-for="Input.Email" class="validation-error-msg"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.UserType" class="form-label"></label>
+            <select asp-for="Input.UserType" class="form-control">
+                <option value="owner">Owner</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+                <option value="reader">Reader</option>
+            </select>
+            <span asp-validation-for="Input.UserType" class="validation-error-msg"></span>
+        </div>
+
+        <div class="form-actions-row">
+            <a asp-page="./Index" class="admin-btn admin-btn-secondary">Cancelar</a>
+            <button type="submit" class="admin-btn admin-btn-primary">Salvar Alterações</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

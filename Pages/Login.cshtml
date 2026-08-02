@@ -1,0 +1,467 @@
+@page
+@model AILibrary.Pages.LoginModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acesso - AI-GoIndicator</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        /* Standalone layout overrides for clean presentation */
+        body {
+            background-color: #100e0c;
+            color: #f7ebd9;
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Repeating dot grid overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--dot-color, rgba(226, 109, 57, 0.05)) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .login-wrapper {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Navbar */
+        .login-header {
+            height: 70px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4rem;
+            max-width: 1200px;
+            width: calc(100% - 8rem);
+            margin: 0 auto;
+        }
+
+        .login-logo {
+            font-family: var(--font-header);
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: -0.03em;
+            color: #f7ebd9;
+            text-decoration: none;
+        }
+        .login-logo span {
+            color: var(--accent);
+        }
+
+        .login-header-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 11px;
+            font-family: var(--font-mono);
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .login-header-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        /* Main Content Container */
+        .login-main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            width: calc(100% - 8rem);
+            margin: 0 auto;
+            padding: 4rem 4rem;
+        }
+
+        /* Left Column Text */
+        .login-info-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-headline {
+            font-family: var(--font-header);
+            font-size: 4.2rem;
+            line-height: 0.95;
+            font-weight: 900;
+            color: #f7ebd9;
+            letter-spacing: -0.04em;
+            margin: 0 0 2rem 0;
+            text-transform: uppercase;
+        }
+        .login-headline span {
+            color: var(--accent);
+            display: block;
+        }
+
+        .login-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        /* Check list */
+        .login-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .login-check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 13.5px;
+            color: #f7ebd9;
+        }
+
+        .login-check-box {
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #100e0c;
+            font-weight: 900;
+            font-size: 11px;
+        }
+
+        /* Bottom pills */
+        .login-pills-row {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .login-pill-btn {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            background: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .login-pill-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        /* Right Column Form (Terminal Box) */
+        .login-form-col {
+            display: flex;
+            justify-content: center;
+        }
+
+        .terminal-box {
+            background-color: #151311;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 440px;
+            padding: 1.75rem 2rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dotted var(--border-color);
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 0.35rem;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .dot-red { background-color: #ef4444; }
+        .dot-orange { background-color: #f59e0b; }
+        .dot-green { background-color: #10b981; }
+
+        .terminal-tab-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .terminal-cmd {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-title {
+            font-family: var(--font-header);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #f7ebd9;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .terminal-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Form Controls */
+        .login-input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .login-input {
+            flex: 1;
+            background-color: #100e0c;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            color: #f7ebd9;
+            font-size: 13.5px;
+            font-family: var(--font-body);
+            transition: border-color 0.2s;
+        }
+        .login-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .login-submit-btn {
+            background-color: var(--accent);
+            color: #100e0c;
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem 1.25rem;
+            font-weight: 700;
+            font-size: 13.5px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .login-submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .terminal-footer-notes {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Footer */
+        .login-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 4rem;
+            max-width: 1200px;
+            width: calc(100% - 8rem);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-branding-logo {
+            font-family: var(--font-header);
+            font-weight: 900;
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            color: #f7ebd9;
+            margin-bottom: 0.25rem;
+        }
+        .footer-branding-logo span {
+            color: var(--accent);
+        }
+
+        .footer-sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links-col {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+        }
+        .footer-link-a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-link-a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive Breakpoints */
+        @@media (max-width: 900px) {
+            .login-main {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 2rem;
+                width: calc(100% - 4rem);
+            }
+            .login-header, .login-footer {
+                padding: 2rem;
+                width: calc(100% - 4rem);
+            }
+            .login-headline {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-wrapper">
+        <!-- Top Navbar -->
+        <header class="login-header">
+            <a href="/" class="login-logo">
+                AI-GoIndicator<span>.</span>
+            </a>
+            <button class="login-header-btn" onclick="document.getElementById('usernameInput').focus();">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 14px; height: 14px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                acesso por e-mail
+            </button>
+        </header>
+
+        <!-- Main Landing Content -->
+        <main class="login-main">
+            <!-- Left Info Column -->
+            <div class="login-info-col">
+                <div class="login-tag">AI-GoIndicator • BIBLIOTECA OFICIAL</div>
+                <h1 class="login-headline">
+                    O que eu uso de verdade <span>com ia e agentes.</span>
+                </h1>
+                <p class="login-description">
+                    Não é curso. É o material que sai direto do meu dia a dia — prompts, skills, plugins e automações — pra você copiar e aplicar hoje.
+                </p>
+
+                <div class="login-checklist">
+                    <div class="login-check-item">
+                        <div class="login-check-box">✓</div>
+                        <span>Cadastro único libera a biblioteca inteira, sem taxas escondidas</span>
+                    </div>
+                    <div class="login-check-item">
+                        <div class="login-check-box">✓</div>
+                        <span>Conteúdo novo toda semana, direto do que estou testando</span>
+                    </div>
+                    <div class="login-check-item">
+                        <div class="login-check-box">✓</div>
+                        <span>Grátis por enquanto — sem cartão, sem pegadinha</span>
+                    </div>
+                </div>
+
+                <div class="login-pills-row">
+                    <button class="login-pill-btn" onclick="document.getElementById('usernameInput').focus();">Guia</button>
+                    <button class="login-pill-btn" onclick="document.getElementById('usernameInput').focus();">Sobre skills</button>
+                    <button class="login-pill-btn" onclick="document.getElementById('usernameInput').focus();">Sobre plugins</button>
+                </div>
+            </div>
+
+            <!-- Right Form Column (Terminal Card) -->
+            <div class="login-form-col">
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-orange"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="terminal-tab-title">acesso.sh</div>
+                    </div>
+
+                    <div class="terminal-cmd">$ unlock --biblioteca --free</div>
+                    <h2 class="terminal-title">ENTRAR</h2>
+                    <p class="terminal-subtitle">15 itens liberados hoje — a lista só cresce.</p>
+
+                    <form method="post" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <input type="text" id="usernameInput" asp-for="Username" placeholder="Seu Nome" class="login-input" style="width: 100%; box-sizing: border-box;" autocomplete="off" required />
+                            <span asp-validation-for="Username" class="validation-error-msg" style="display: block; margin-top: 0.25rem; font-size: 11px;"></span>
+                        </div>
+                        <div>
+                            <input type="email" id="emailInput" asp-for="Email" placeholder="voce@email.com" class="login-input" style="width: 100%; box-sizing: border-box;" autocomplete="off" required />
+                            <span asp-validation-for="Email" class="validation-error-msg" style="display: block; margin-top: 0.25rem; font-size: 11px;"></span>
+                        </div>
+                        <button type="submit" class="login-submit-btn" style="width: 100%; box-sizing: border-box;">Destravar Acesso</button>
+                    </form>
+
+                    <div class="terminal-footer-notes">
+                        grátis • sem cartão • o link chega em segundos
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="login-footer">
+            <div>
+                <div class="footer-branding-logo">
+                    AI-GoIndicator<span>.</span>
+                </div>
+                <div class="footer-sub">
+                    IA, agentes e código — direto do meu dia a dia.
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <span style="color: var(--text-muted);">© 2026</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
