@@ -8,7 +8,11 @@
     "ShortDescription": "Plugins, skills e servidores MCP para usar o Claude como power user.",
     "Description": "Plugins, skills e servidores MCP para usar o Claude como power user.",
     "IsNew": true,
-    "Tags": ["Claude Code", "MCP", "Power User"],
+    "Tags": [
+      "Claude Code",
+      "MCP",
+      "Power User"
+    ],
     "OfficialLink": "",
     "MethodSteps": [],
     "Prompt": "",
@@ -24,7 +28,11 @@
     "ShortDescription": "Configure o OmniRoute com Antigravity, Kiro e fallback automático de modelos no Claude Code.",
     "Description": "Configure o OmniRoute com Antigravity, Kiro e fallback automático de modelos no Claude Code.",
     "IsNew": true,
-    "Tags": ["Claude Code", "OmniRoute", "Fallback"],
+    "Tags": [
+      "Claude Code",
+      "OmniRoute",
+      "Fallback"
+    ],
     "OfficialLink": "",
     "MethodSteps": [],
     "Prompt": "",
@@ -40,7 +48,11 @@
     "ShortDescription": "Uma análise editorial de 2.000 posts do Reddit sobre serviços, automação, produtos, conteúdo e outros modelos — com fontes e verificações ainda a completar.",
     "Description": "Uma análise editorial de 2.000 posts do Reddit sobre serviços, automação, produtos, conteúdo e outros modelos — com fontes e verificações ainda a completar.",
     "IsNew": true,
-    "Tags": ["Reddit", "Monetização", "Automação"],
+    "Tags": [
+      "Reddit",
+      "Monetização",
+      "Automação"
+    ],
     "OfficialLink": "",
     "MethodSteps": [],
     "Prompt": "",
@@ -56,7 +68,11 @@
     "ShortDescription": "7 ferramentas open source que adicionam memória, contexto, navegador, sandbox, segurança e verificação ao Claude Code, Codex e outros agentes.",
     "Description": "7 ferramentas open source que adicionam memória, contexto, navegador, sandbox, segurança e verificação ao Claude Code, Codex e outros agentes.",
     "IsNew": true,
-    "Tags": ["Open Source", "Agentes", "Memória"],
+    "Tags": [
+      "Open Source",
+      "Agentes",
+      "Memória"
+    ],
     "OfficialLink": "",
     "MethodSteps": [],
     "Prompt": "",
@@ -72,7 +88,11 @@
     "ShortDescription": "Um arquivo de regras para o Claude Code parar de inventar, complicar e concluir sem verificar.",
     "Description": "Um arquivo de regras para o Claude Code parar de inventar, complicar e concluir sem verificar.",
     "IsNew": true,
-    "Tags": ["Claude Code", "Regras", "Best Practices"],
+    "Tags": [
+      "Claude Code",
+      "Regras",
+      "Best Practices"
+    ],
     "OfficialLink": "",
     "MethodSteps": [],
     "Prompt": "",
@@ -88,7 +108,11 @@
     "ShortDescription": "O modelo é gratuito. O datacenter para rodá-lo pode custar R$ 708 mil por mês.",
     "Description": "O modelo é gratuito. O datacenter para rodá-lo pode custar R$ 708 mil por mês.",
     "IsNew": true,
-    "Tags": ["Kimi K3", "Open Source", "Datacenter"],
+    "Tags": [
+      "Kimi K3",
+      "Open Source",
+      "Datacenter"
+    ],
     "OfficialLink": "",
     "MethodSteps": [],
     "Prompt": "",
@@ -104,7 +128,10 @@
     "ShortDescription": "Skill oficial para interfaces distintas e prontas para produção.",
     "Description": "Skill oficial para interfaces distintas e prontas para produção.",
     "IsNew": true,
-    "Tags": ["Claude Code", "Frontend"],
+    "Tags": [
+      "Claude Code",
+      "Frontend"
+    ],
     "OfficialLink": "https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design",
     "MethodSteps": [
       "Abra a fonte oficial.",
@@ -124,7 +151,10 @@
     "ShortDescription": "Revisa padrões de escrita gerada por IA.",
     "Description": "Aprenda a fazer seus textos gerados por inteligência artificial soarem naturais e humanos, removendo vícios comuns de linguagem e clichês de LLM.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Escrita"],
+    "Tags": [
+      "Claude Code",
+      "Escrita"
+    ],
     "OfficialLink": "https://github.com/anthropics/claude-code/tree/main/plugins/humanizer",
     "MethodSteps": [
       "Abra a fonte oficial.",
@@ -144,7 +174,10 @@
     "ShortDescription": "Starter para planejar um segundo cérebro com IA.",
     "Description": "Automatize a captura de conhecimento e crie conexões inteligentes entre suas notas de estudo e projetos usando inteligência artificial.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Produtividade"],
+    "Tags": [
+      "Claude Code",
+      "Produtividade"
+    ],
     "OfficialLink": "https://github.com/examples/ai-second-brain",
     "MethodSteps": [
       "Instale o plugin em seu ambiente de produtividade.",
@@ -164,7 +197,10 @@
     "ShortDescription": "Crie e renderize vídeos baseados em HTML.",
     "Description": "Uma skill para construir animações de vídeo programáticas usando tags HTML, CSS e JavaScript estruturados.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Vídeo"],
+    "Tags": [
+      "Claude Code",
+      "Vídeo"
+    ],
     "OfficialLink": "https://github.com/examples/hyperframes",
     "MethodSteps": [
       "Clone o repositório hyperframes.",
@@ -184,7 +220,11 @@
     "ShortDescription": "A base para o agente sair do visual genérico.",
     "Description": "Princípios fundamentais de design de interface que capacitam agentes a construírem páginas com alta harmonia visual, grids consistentes e paletas sofisticadas.",
     "IsNew": false,
-    "Tags": ["UI", "Tipografia", "Composição"],
+    "Tags": [
+      "UI",
+      "Tipografia",
+      "Composição"
+    ],
     "OfficialLink": "https://github.com/design/frontend-guidelines",
     "MethodSteps": [
       "Aplique a folha de estilo base recomendada.",
@@ -204,7 +244,11 @@
     "ShortDescription": "Refine uma interface existente e reduza ruído visual.",
     "Description": "Limpe o código redundante de suas páginas HTML/CSS e atinja um acabamento de pixel perfeito e moderno.",
     "IsNew": false,
-    "Tags": ["UI", "Auditoria", "Motion"],
+    "Tags": [
+      "UI",
+      "Auditoria",
+      "Motion"
+    ],
     "OfficialLink": "https://github.com/design/impeccable",
     "MethodSteps": [
       "Audite os elementos redundantes no DOM.",
@@ -224,7 +268,11 @@
     "ShortDescription": "Faça o agente pensar no produto antes de codar.",
     "Description": "Um framework de perguntas e validação de wireframes estruturado para forçar o desenvolvimento com foco no usuário final.",
     "IsNew": false,
-    "Tags": ["UX", "Planejamento", "UI"],
+    "Tags": [
+      "UX",
+      "Planejamento",
+      "UI"
+    ],
     "OfficialLink": "https://github.com/product/ui-ux-pro-max",
     "MethodSteps": [
       "Inicie o questionário de imersão do produto.",
@@ -244,7 +292,11 @@
     "ShortDescription": "Audite acessibilidade e UX antes de publicar.",
     "Description": "Lista de verificação e padrões essenciais para que seu site atenda aos níveis de acessibilidade WCAG e seja inclusivo.",
     "IsNew": false,
-    "Tags": ["Acessibilidade", "QA", "UX"],
+    "Tags": [
+      "Acessibilidade",
+      "QA",
+      "UX"
+    ],
     "OfficialLink": "https://github.com/accessibility/guidelines",
     "MethodSteps": [
       "Verifique as tags alt em todas as imagens.",
@@ -264,7 +316,11 @@
     "ShortDescription": "Use um sistema visual preparado para crescer.",
     "Description": "Integre um design system leve e escalável baseado em tokens CSS nativos, pronto para componentes robustos.",
     "IsNew": false,
-    "Tags": ["Design System", "Componentes", "Meta"],
+    "Tags": [
+      "Design System",
+      "Componentes",
+      "Meta"
+    ],
     "OfficialLink": "https://github.com/design/astryx",
     "MethodSteps": [
       "Instale o pacote astryx-core.",
@@ -284,7 +340,11 @@
     "ShortDescription": "Crie cenas 3D interativas com o agente.",
     "Description": "Instruções específicas para configurar renderizadores, câmeras e malhas 3D interativas no navegador de forma otimizada.",
     "IsNew": false,
-    "Tags": ["Three.js", "WebGL", "3D"],
+    "Tags": [
+      "Three.js",
+      "WebGL",
+      "3D"
+    ],
     "OfficialLink": "https://github.com/mrdoob/three.js",
     "MethodSteps": [
       "Importe Three.js em seu arquivo de scripts.",
@@ -304,7 +364,11 @@
     "ShortDescription": "Construa timelines, reveals e interações com scroll.",
     "Description": "Domine as técnicas de animação com GSAP para criar efeitos dinâmicos de reveal e acionamento por rolagem (ScrollTrigger).",
     "IsNew": false,
-    "Tags": ["GSAP", "Timeline", "ScrollTrigger"],
+    "Tags": [
+      "GSAP",
+      "Timeline",
+      "ScrollTrigger"
+    ],
     "OfficialLink": "https://github.com/greensock/GSAP",
     "MethodSteps": [
       "Carregue a biblioteca GSAP e o plugin ScrollTrigger.",
@@ -324,7 +388,11 @@
     "ShortDescription": "Extraia a identidade visual de uma interface.",
     "Description": "Analise esquemas visuais existentes e converta-os em um design system unificado contendo cores, fontes e espaçamentos.",
     "IsNew": false,
-    "Tags": ["Tokens", "Tipografia", "UI"],
+    "Tags": [
+      "Tokens",
+      "Tipografia",
+      "UI"
+    ],
     "OfficialLink": "https://github.com/design/dna",
     "MethodSteps": [
       "Extraia a paleta de cores dominante da imagem da interface.",
@@ -344,7 +412,11 @@
     "ShortDescription": "Planeje animações Lottie, SVG e estados interativos.",
     "Description": "Crie transições envolventes de microuso, estados de hover sofisticados e carregamento dinâmico de SVGs animados.",
     "IsNew": false,
-    "Tags": ["Lottie", "SVG", "Keyframes"],
+    "Tags": [
+      "Lottie",
+      "SVG",
+      "Keyframes"
+    ],
     "OfficialLink": "https://github.com/airbnb/lottie-web",
     "MethodSteps": [
       "Importe o player do Lottie.",
@@ -364,7 +436,11 @@
     "ShortDescription": "Adicione direção criativa e polimento premium.",
     "Description": "Eleve a estética da aplicação ao nível de portfólio de grife usando layout assimétrico e efeitos de distorção sutis.",
     "IsNew": false,
-    "Tags": ["Creative Direction", "UI", "Animation"],
+    "Tags": [
+      "Creative Direction",
+      "UI",
+      "Animation"
+    ],
     "OfficialLink": "https://github.com/design/genjutsu",
     "MethodSteps": [
       "Introduza grids assimétricos e quebras intencionais no alinhamento.",
@@ -378,13 +454,17 @@
   {
     "Id": "agencia-ia-claude",
     "Slug": "agencia-ia-claude",
-    "Title": "AGÊNCIA DE IA COM CLAUDE",
+    "Title": "AGÊNCIA DE IA COM CLAUDE XXX",
     "Type": "Skill",
     "Category": "Marketing e Agência",
     "ShortDescription": "Um comando instala 6 skills de marketing no Claude Code.",
     "Description": "Automatize a criação de copys, planejamento de campanhas, análise de tráfego e posts de redes sociais com prompts em lote.",
     "IsNew": false,
-    "Tags": ["Marketing", "Agência", "Anúncios"],
+    "Tags": [
+      "Marketing",
+      "Agência",
+      "Anúncios"
+    ],
     "OfficialLink": "https://github.com/marketing/claude-agency-skills",
     "MethodSteps": [
       "Abra a linha de comando.",
@@ -404,7 +484,10 @@
     "ShortDescription": "Pack de marketing para Claude Code.",
     "Description": "Uma coleção de plugins configuráveis focados em gerar anúncios de alta performance e planejar campanhas digitais.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Marketing"],
+    "Tags": [
+      "Claude Code",
+      "Marketing"
+    ],
     "OfficialLink": "https://github.com/coreyhaines31/marketingskills",
     "MethodSteps": [
       "Abra a fonte oficial.",
@@ -424,7 +507,10 @@
     "ShortDescription": "Skills para produção e análise de conteúdo social.",
     "Description": "Monitore métricas de engajamento e gere ideias de conteúdo viral com prompts moldados em tendências do X/Twitter e TikTok.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Social media"],
+    "Tags": [
+      "Claude Code",
+      "Social media"
+    ],
     "OfficialLink": "https://github.com/examples/social-media-skills",
     "MethodSteps": [
       "Abra a fonte oficial.",
@@ -444,7 +530,10 @@
     "ShortDescription": "Workflow de produto, engineering, revisão e QA.",
     "Description": "Um pipeline de desenvolvimento ponta a ponta configurado dentro de um único pacote de comandos rápidos para o desenvolvedor solo.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Desenvolvimento"],
+    "Tags": [
+      "Claude Code",
+      "Desenvolvimento"
+    ],
     "OfficialLink": "https://github.com/examples/gstack",
     "MethodSteps": [
       "Abra a fonte oficial.",
@@ -464,7 +553,10 @@
     "ShortDescription": "Coleção full-stack com skills especializadas.",
     "Description": "Adicione suporte nativo a banco de dados, autenticação básica e manipulação de arquivos estáticos no Claude Code.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Desenvolvimento"],
+    "Tags": [
+      "Claude Code",
+      "Desenvolvimento"
+    ],
     "OfficialLink": "https://github.com/examples/claude-skills",
     "MethodSteps": [
       "Instale as ferramentas base da coleção.",
@@ -484,7 +576,11 @@
     "ShortDescription": "Cinco loops instalam com um comando e param de fazer o Claude responder como chatbot.",
     "Description": "Transforme o Claude em um trabalhador em segundo plano com autonomia para resolver bugs e testar o código ciclicamente.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Automação", "MVP"],
+    "Tags": [
+      "Claude Code",
+      "Automação",
+      "MVP"
+    ],
     "OfficialLink": "https://github.com/examples/claude-loops",
     "MethodSteps": [
       "Instale o pacote loops.",
@@ -504,7 +600,10 @@
     "ShortDescription": "Ligue e atualize o Notion pelo Claude.",
     "Description": "Leia e atualize o Notion pelo Claude.",
     "IsNew": false,
-    "Tags": ["Claude Code", "MCP"],
+    "Tags": [
+      "Claude Code",
+      "MCP"
+    ],
     "OfficialLink": "https://github.com/modelcontextprotocol/servers/tree/main/src/notion",
     "MethodSteps": [
       "Abra a fonte oficial.",
@@ -524,7 +623,10 @@
     "ShortDescription": "Pesquise e interaja com o workspace Slack.",
     "Description": "Conecte o Claude ao seu espaço de trabalho do Slack para responder mensagens, ler canais públicos e enviar alertas programados.",
     "IsNew": false,
-    "Tags": ["Claude Code", "MCP"],
+    "Tags": [
+      "Claude Code",
+      "MCP"
+    ],
     "OfficialLink": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
     "MethodSteps": [
       "Instale as dependências de ambiente do Slack MCP.",
@@ -544,7 +646,10 @@
     "ShortDescription": "Exponha ações do Zapier ao Claude.",
     "Description": "Habilite mais de 5.000 integrações de automação no seu agente conectando o conector MCP do Zapier com suas contas ativas.",
     "IsNew": false,
-    "Tags": ["Claude Code", "MCP"],
+    "Tags": [
+      "Claude Code",
+      "MCP"
+    ],
     "OfficialLink": "https://github.com/modelcontextprotocol/servers/tree/main/src/zapier",
     "MethodSteps": [
       "Crie a chave de integração Zapier NLA.",
@@ -564,7 +669,10 @@
     "ShortDescription": "Gere imagens e vídeos pelo Claude.",
     "Description": "Integração por prompts rápidos no terminal para sintetizar mídias por inteligência artificial usando a API da Higgsfield.",
     "IsNew": false,
-    "Tags": ["Claude Code", "MCP"],
+    "Tags": [
+      "Claude Code",
+      "MCP"
+    ],
     "OfficialLink": "https://github.com/examples/higgsfield-mcp",
     "MethodSteps": [
       "Configure seu token da Higgsfield AI.",
@@ -584,7 +692,11 @@
     "ShortDescription": "Conecte provedores e crie fallback de modelos para o Claude Code.",
     "Description": "Roteie prompts inteligentemente entre Anthropic, OpenAI, DeepSeek e modelos locais para otimizar cota e custos.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Roteamento", "Fallback"],
+    "Tags": [
+      "Claude Code",
+      "Roteamento",
+      "Fallback"
+    ],
     "OfficialLink": "https://github.com/examples/omniroute",
     "MethodSteps": [
       "Instale a CLI omniroute.",
@@ -604,7 +716,11 @@
     "ShortDescription": "O agente para de se lembrar de zero a cada sessão.",
     "Description": "Persista dados importantes de contexto e regras aprendidas de sessões anteriores criando um banco local SQLite de memória de longo prazo.",
     "IsNew": false,
-    "Tags": ["Memória", "MCP", "Contexto"],
+    "Tags": [
+      "Memória",
+      "MCP",
+      "Contexto"
+    ],
     "OfficialLink": "https://github.com/examples/agentmemory",
     "MethodSteps": [
       "Adicione agentmemory às ferramentas globais.",
@@ -624,7 +740,11 @@
     "ShortDescription": "Dê ao agente a visão de código de uma IDE.",
     "Description": "Análise sintática avançada baseada em grafos que ajuda o agente a enxergar relacionamentos entre funções em múltiplos arquivos.",
     "IsNew": false,
-    "Tags": ["IDE", "Refatoração", "Novas pastas"],
+    "Tags": [
+      "IDE",
+      "Refatoração",
+      "Novas pastas"
+    ],
     "OfficialLink": "https://github.com/examples/serena",
     "MethodSteps": [
       "Instale o pacote serena em seu projeto.",
@@ -644,7 +764,11 @@
     "ShortDescription": "Compreenda o que o agente lê antes de chegar no limite.",
     "Description": "Resumidor semântico dinâmico que mantém as partes mais importantes de conversas longas na memória RAM, economizando consumo de tokens.",
     "IsNew": false,
-    "Tags": ["Contexto", "Tokens", "Fechamento"],
+    "Tags": [
+      "Contexto",
+      "Tokens",
+      "Fechamento"
+    ],
     "OfficialLink": "https://github.com/examples/headroom",
     "MethodSteps": [
       "Instale o headroom localmente.",
@@ -664,7 +788,11 @@
     "ShortDescription": "Coloque o agente dentro do seu Chrome real, já logado.",
     "Description": "Permita que o agente realize ações no navegador usando sua sessão logada real via Puppeteer/Playwright de forma assistida.",
     "IsNew": false,
-    "Tags": ["Navegador", "MCP", "Automação"],
+    "Tags": [
+      "Navegador",
+      "MCP",
+      "Automação"
+    ],
     "OfficialLink": "https://github.com/examples/openchrome",
     "MethodSteps": [
       "Ative as opções de debugging remoto no Google Chrome.",
@@ -684,7 +812,11 @@
     "ShortDescription": "Uma máquina descartável pro agente rodar código.",
     "Description": "Ambiente Docker local isolado e seguro para o agente poder testar scripts bash, python ou javascript sem risco de afetar sua máquina host.",
     "IsNew": false,
-    "Tags": ["Sandbox", "Docker", "Isolamento"],
+    "Tags": [
+      "Sandbox",
+      "Docker",
+      "Isolamento"
+    ],
     "OfficialLink": "https://github.com/examples/aio-sandbox",
     "MethodSteps": [
       "Instale e rode o Docker Desktop.",
@@ -704,7 +836,11 @@
     "ShortDescription": "Um linter no MCP, útil para o agente.",
     "Description": "Validador estático de código integrado que previne a injeção acidental de comandos prejudiciais em chamadas do terminal.",
     "IsNew": false,
-    "Tags": ["Segurança", "AST", "Linter"],
+    "Tags": [
+      "Segurança",
+      "AST",
+      "Linter"
+    ],
     "OfficialLink": "https://github.com/examples/agent-scan",
     "MethodSteps": [
       "Configure o validador AST local do Agent Scan.",
@@ -724,7 +860,11 @@
     "ShortDescription": "Faça o agente seguir um processo, não o próprio humor.",
     "Description": "Engine de orquestração local que força o agente a completar checklist de tarefas, rodar linter e executar testes de forma sequencial.",
     "IsNew": false,
-    "Tags": ["Workflows", "YAML", "Processo"],
+    "Tags": [
+      "Workflows",
+      "YAML",
+      "Processo"
+    ],
     "OfficialLink": "https://github.com/examples/archon",
     "MethodSteps": [
       "Crie o arquivo archon.workflow.yaml.",
@@ -744,7 +884,11 @@
     "ShortDescription": "Transforme seu agente em uma agência inteira.",
     "Description": "Instancie múltiplos agentes locais com especialidades diferentes (e.g. Designer, Redator, QA) e coloque-os para colaborar.",
     "IsNew": false,
-    "Tags": ["Agentes", "Colegiado", "Equipe"],
+    "Tags": [
+      "Agentes",
+      "Colegiado",
+      "Equipe"
+    ],
     "OfficialLink": "https://github.com/examples/agency-agents",
     "MethodSteps": [
       "Defina os perfis de agentes no arquivo de configuração da agência.",
@@ -764,7 +908,11 @@
     "ShortDescription": "Dê acesso à pesquisa online para o seu agente.",
     "Description": "Busca na internet em tempo real otimizada para retornar conteúdo limpo em Markdown, ideal para o prompt do agente.",
     "IsNew": false,
-    "Tags": ["Pesquisa", "Search", "API"],
+    "Tags": [
+      "Pesquisa",
+      "Search",
+      "API"
+    ],
     "OfficialLink": "https://github.com/examples/agent-reach",
     "MethodSteps": [
       "Associe sua chave de API de buscas (Tavily/Google).",
@@ -784,7 +932,11 @@
     "ShortDescription": "Tenha seu próprio ChatGPT open source.",
     "Description": "Uma interface de chat completa, com suporte a múltiplos usuários, pesquisa de histórico e integração com dezenas de provedores de LLM.",
     "IsNew": false,
-    "Tags": ["Chat", "Self-hosted", "LLM"],
+    "Tags": [
+      "Chat",
+      "Self-hosted",
+      "LLM"
+    ],
     "OfficialLink": "https://github.com/danny-avila/LibreChat",
     "MethodSteps": [
       "Clone o repositório oficial do LibreChat.",
@@ -804,7 +956,11 @@
     "ShortDescription": "Monte um modelo visual de IA no seu terminal.",
     "Description": "Processamento local de vídeo por inteligência artificial, empacotado para ser executado de forma simples em máquinas com GPU dedicada.",
     "IsNew": false,
-    "Tags": ["Imagem", "Video", "Self-hosted"],
+    "Tags": [
+      "Imagem",
+      "Video",
+      "Self-hosted"
+    ],
     "OfficialLink": "https://github.com/examples/open-higgsfield-ai",
     "MethodSteps": [
       "Instale as dependências PyTorch e CUDA em sua máquina.",
@@ -824,7 +980,11 @@
     "ShortDescription": "Transforme sua caixa de e-mails em um agente.",
     "Description": "Leitor assíncrono que classifica seus e-mails recebidos, resume newsletters importantes e rascunha respostas baseando-se em suas regras anteriores.",
     "IsNew": false,
-    "Tags": ["E-mail", "Agentes", "Automação"],
+    "Tags": [
+      "E-mail",
+      "Agentes",
+      "Automação"
+    ],
     "OfficialLink": "https://github.com/examples/agentic-inbox",
     "MethodSteps": [
       "Conecte sua caixa via IMAP/OAuth seguro.",
@@ -844,7 +1004,11 @@
     "ShortDescription": "Clone e gere voz direto do desktop.",
     "Description": "Ferramenta local baseada em IA para clonagem de voz instantânea e geração de falas realistas a partir de textos em áudio.",
     "IsNew": false,
-    "Tags": ["Voz", "Áudio", "Local"],
+    "Tags": [
+      "Voz",
+      "Áudio",
+      "Local"
+    ],
     "OfficialLink": "https://github.com/examples/voicebox",
     "MethodSteps": [
       "Instale os pacotes de som nativos do OS.",
@@ -864,7 +1028,11 @@
     "ShortDescription": "Registre, reproduza e analise ações de agentes.",
     "Description": "Um gravador de sessões e interações de agentes locais para ajudar a auditar logs de chamadas e reproduzir bugs repetidamente.",
     "IsNew": false,
-    "Tags": ["Agentes", "Gravação", "Testes"],
+    "Tags": [
+      "Agentes",
+      "Gravação",
+      "Testes"
+    ],
     "OfficialLink": "https://github.com/examples/shepherd",
     "MethodSteps": [
       "Ative o logging estendido no Claude Code.",
@@ -884,7 +1052,11 @@
     "ShortDescription": "Crie um personagem que conversa com qualquer LLM.",
     "Description": "Conecte seu assistente a um modelo Live2D no navegador. O personagem reage visualmente e por voz a cada resposta gerada.",
     "IsNew": false,
-    "Tags": ["Avatar", "Voz", "Live2D"],
+    "Tags": [
+      "Avatar",
+      "Voz",
+      "Live2D"
+    ],
     "OfficialLink": "https://github.com/yy4321/Open-LLM-VTuber",
     "MethodSteps": [
       "Clone o repositório do VTuber.",
@@ -904,7 +1076,11 @@
     "ShortDescription": "Escreva HTML e renderize vídeos.",
     "Description": "Uma skill para construir animações de vídeo programáticas usando tags HTML, CSS e JavaScript estruturados.",
     "IsNew": false,
-    "Tags": ["video", "html", "animação"],
+    "Tags": [
+      "video",
+      "html",
+      "animação"
+    ],
     "OfficialLink": "https://github.com/examples/hyperframes",
     "MethodSteps": [
       "Abra a fonte oficial.",
@@ -924,7 +1100,11 @@
     "ShortDescription": "Substitua o Webflow com administração por commits.",
     "Description": "Um sistema leve e desacoplado que lê Markdown do Git e gera sites institucionais ultra velozes com deploy estático.",
     "IsNew": false,
-    "Tags": ["LowCode", "Hospedagem", "Decoupled"],
+    "Tags": [
+      "LowCode",
+      "Hospedagem",
+      "Decoupled"
+    ],
     "OfficialLink": "https://github.com/examples/zernflow",
     "MethodSteps": [
       "Configure o webhook em seu repositório Git.",
@@ -944,7 +1124,11 @@
     "ShortDescription": "Substitua o Descript com processamento por código.",
     "Description": "Gere e exporte cortes automáticos de podcasts e vídeos longos para shorts editando o próprio roteiro textual gerado por transcrição.",
     "IsNew": false,
-    "Tags": ["ShortCuts", "Video", "CLI"],
+    "Tags": [
+      "ShortCuts",
+      "Video",
+      "CLI"
+    ],
     "OfficialLink": "https://github.com/examples/supoclip",
     "MethodSteps": [
       "Importe o vídeo longo e gere a transcrição local.",
@@ -964,7 +1148,11 @@
     "ShortDescription": "Substitua Mailchimp, Resend e Marketing.",
     "Description": "Plataforma self-hosted para envio em lote de e-mails transacionais e newsletter integrando chaves SES da AWS ou Mailgun.",
     "IsNew": false,
-    "Tags": ["Tráfego", "E-mail", "Newsletter"],
+    "Tags": [
+      "Tráfego",
+      "E-mail",
+      "Newsletter"
+    ],
     "OfficialLink": "https://github.com/examples/notifuse",
     "MethodSteps": [
       "Instale o notifuse em seu servidor virtual.",
@@ -984,7 +1172,11 @@
     "ShortDescription": "Substitua o Typeform pra coletar ideias e validar SaaS.",
     "Description": "Criador de formulários interativos moderno e elegante com lógica de navegação condicional, 100% livre e auto-hospedável.",
     "IsNew": false,
-    "Tags": ["Form", "Formulário", "Leads"],
+    "Tags": [
+      "Form",
+      "Formulário",
+      "Leads"
+    ],
     "OfficialLink": "https://github.com/heyform/heyform",
     "MethodSteps": [
       "Suba o HeyForm via Docker Compose.",
@@ -1004,7 +1196,11 @@
     "ShortDescription": "Substitua Mixpanel e PostHog.",
     "Description": "Analytics leve de eventos focado em privacidade, que consome recursos mínimos do servidor e gera relatórios de funil instantâneos.",
     "IsNew": false,
-    "Tags": ["Analytics", "Product", "Metrics"],
+    "Tags": [
+      "Analytics",
+      "Product",
+      "Metrics"
+    ],
     "OfficialLink": "https://github.com/openpanel-dev/openpanel",
     "MethodSteps": [
       "Carregue o SDK JavaScript leve no seu cabeçalho.",
@@ -1024,7 +1220,11 @@
     "ShortDescription": "Substitua o DocSend com links rastreáveis.",
     "Description": "Compartilhe seus PDFs com links customizados que mostram o tempo que cada leitor permaneceu em cada página do documento.",
     "IsNew": false,
-    "Tags": ["DocSend", "Documento", "Analytics"],
+    "Tags": [
+      "DocSend",
+      "Documento",
+      "Analytics"
+    ],
     "OfficialLink": "https://github.com/inloop/papermark",
     "MethodSteps": [
       "Hospede o papermark em seu servidor.",
@@ -1044,7 +1244,11 @@
     "ShortDescription": "Substitua o DocuSign com assinatura por documentos.",
     "Description": "Assinador de documentos oficial de código aberto e robusto para criar e auditar fluxos de assinatura de PDF com certificação.",
     "IsNew": false,
-    "Tags": ["Assinatura", "Contrato", "Assinar"],
+    "Tags": [
+      "Assinatura",
+      "Contrato",
+      "Assinar"
+    ],
     "OfficialLink": "https://github.com/documenso/documenso",
     "MethodSteps": [
       "Suba a aplicação Documenso localmente ou use a nuvem.",
@@ -1064,7 +1268,11 @@
     "ShortDescription": "Substitua Buffer, Metricool e Hootsuite.",
     "Description": "Plataforma self-hosted avançada para agendamento de postagens e calendário de redes sociais integrado com IA.",
     "IsNew": false,
-    "Tags": ["Buffer", "Redes sociais", "Agendamento"],
+    "Tags": [
+      "Buffer",
+      "Redes sociais",
+      "Agendamento"
+    ],
     "OfficialLink": "https://github.com/gitroomhq/postiz-app",
     "MethodSteps": [
       "Suba o container Postiz usando Docker.",
@@ -1084,7 +1292,13 @@
     "ShortDescription": "Um arquivo curto para tornar o trabalho do agente mais simples, claro e verificável.",
     "Description": "Guia para criar um arquivo de instruções persistentes no Claude Code e adaptar a mesma lógica para Codex, Cursor, Copilot e Windsurf.",
     "IsNew": false,
-    "Tags": ["Claude Code", "Codex", "AGENTS.md", "Regras", "Prompt"],
+    "Tags": [
+      "Claude Code",
+      "Codex",
+      "AGENTS.md",
+      "Regras",
+      "Prompt"
+    ],
     "OfficialLink": "",
     "MethodSteps": [
       "Crie CLAUDE.md na raiz do projeto para aplicar as regras no Claude Code.",
@@ -1104,7 +1318,11 @@
     "ShortDescription": "Instale o Clarity na stack correta usando um agente.",
     "Description": "Aprenda a integrar o Microsoft Clarity na sua aplicação Next.js utilizando um agente para criar o script de inicialização e verificar o tráfego do usuário de forma automática e otimizada.",
     "IsNew": false,
-    "Tags": ["Analytics", "Clarity", "Next.js"],
+    "Tags": [
+      "Analytics",
+      "Clarity",
+      "Next.js"
+    ],
     "OfficialLink": "https://clarity.microsoft.com/",
     "MethodSteps": [
       "Crie o ID do projeto no painel do Microsoft Clarity.",
@@ -1124,7 +1342,12 @@
     "ShortDescription": "Certificado oficial gratuito em cursos selecionados.",
     "Description": "Centenas de cursos gratuitos e trilhas de aprendizado. Diversos cursos disponibilizam credenciais digitais ou certificados oficiais da IBM.",
     "IsNew": false,
-    "Tags": ["IA", "Data", "Cybersecurity", "Cloud"],
+    "Tags": [
+      "IA",
+      "Data",
+      "Cybersecurity",
+      "Cloud"
+    ],
     "OfficialLink": "https://skillsbuild.org/",
     "MethodSteps": [
       "Abra a plataforma oficial e crie a conta gratuita.",
@@ -1144,7 +1367,11 @@
     "ShortDescription": "Cursos gratuitos e certificados em ações específicas.",
     "Description": "Cursos práticos de laboratório ministrados pela Nvidia para aprender tópicos avançados como LLMs, CUDA, visão computacional e aceleração de hardware.",
     "IsNew": false,
-    "Tags": ["IA Generativa", "LLMs", "CUDA"],
+    "Tags": [
+      "IA Generativa",
+      "LLMs",
+      "CUDA"
+    ],
     "OfficialLink": "https://www.nvidia.com/pt-br/training/online/",
     "MethodSteps": [
       "Acesse o site Nvidia DLI.",
@@ -1164,7 +1391,11 @@
     "ShortDescription": "Módulos gratuitos e badges oficiais em desafios selecionados.",
     "Description": "Plataforma de aprendizado oficial da Microsoft contendo caminhos estruturados para certificações em Azure, IA do Azure e ferramentas de produtividade.",
     "IsNew": false,
-    "Tags": ["Azure", "IA", "Dados"],
+    "Tags": [
+      "Azure",
+      "IA",
+      "Dados"
+    ],
     "OfficialLink": "https://learn.microsoft.com/",
     "MethodSteps": [
       "Crie uma conta gratuita no Microsoft Learn.",
@@ -1184,7 +1415,11 @@
     "ShortDescription": "Badges digitais em campanhas e trilhas oficiais.",
     "Description": "Plataforma oficial de laboratórios práticos do Google Cloud, contendo trilhas completas de aprendizado de IA generativa e machine learning.",
     "IsNew": false,
-    "Tags": ["Cloud", "Machine Learning", "IA Generativa"],
+    "Tags": [
+      "Cloud",
+      "Machine Learning",
+      "IA Generativa"
+    ],
     "OfficialLink": "https://www.cloudskillsboost.google/",
     "MethodSteps": [
       "Acesse a plataforma Google Cloud Skills Boost.",
@@ -1204,7 +1439,11 @@
     "ShortDescription": "Certificado de conclusão gratuito nos cursos da plataforma.",
     "Description": "Cursos online gratuitos sobre redes de computadores, programação com Python, Linux básico e conceitos cruciais de segurança cibernética.",
     "IsNew": false,
-    "Tags": ["Python", "Linux", "Redes"],
+    "Tags": [
+      "Python",
+      "Linux",
+      "Redes"
+    ],
     "OfficialLink": "https://skillsforall.com/",
     "MethodSteps": [
       "Crie sua conta gratuita no Skills for All da Cisco.",
@@ -1224,7 +1463,11 @@
     "ShortDescription": "Cursos gratuitos e certificados digitais conforme a trilha.",
     "Description": "Caminhos de aprendizado da Intel para engenheiros focados em inferência em tempo real, visão computacional e otimização de modelos usando a biblioteca OpenVINO.",
     "IsNew": false,
-    "Tags": ["Visão computacional", "OpenVINO", "Edge AI"],
+    "Tags": [
+      "Visão computacional",
+      "OpenVINO",
+      "Edge AI"
+    ],
     "OfficialLink": "https://www.intel.com/content/www/us/en/developer/topic/ai/overview.html",
     "MethodSteps": [
       "Crie sua conta de desenvolvedor Intel.",
@@ -1244,7 +1487,11 @@
     "ShortDescription": "Cursos gratuitos com comprovante de conclusão.",
     "Description": "Plataformas de aprendizado oficiais da Amazon Web Services que oferecem centenas de cursos gratuitos sobre computação em nuvem, bancos de dados e IA generativa (e.g. Amazon Bedrock).",
     "IsNew": false,
-    "Tags": ["IA Generativa", "Prompt Engineering", "Cloud"],
+    "Tags": [
+      "IA Generativa",
+      "Prompt Engineering",
+      "Cloud"
+    ],
     "OfficialLink": "https://aws.amazon.com/pt/training/",
     "MethodSteps": [
       "Crie sua conta gratuita no portal AWS Educate.",

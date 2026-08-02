@@ -1,19 +1,52 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text.Json;
-using Microsoft.AspNetCore.Hosting;
+using AILibrary.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AILibrary.Services
 {
+    public class LibraryType
+    {
+        public long Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
+    public class LibraryCategory
+    {
+        public long Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
     public class LibraryItem
     {
-        public string Id { get; set; } = string.Empty;
+        public long Id { get; set; }
+        public string ItemCode { get; set; } = string.Empty;
         public string Slug { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
-        public string Type { get; set; } = string.Empty; // "Skill", "Plugin", "Edicao", etc.
-        public string Category { get; set; } = string.Empty;
+
+        public long TypeId { get; set; }
+        public LibraryType TypeNavigation { get; set; } = null!;
+
+        public long CategoryId { get; set; }
+        public LibraryCategory CategoryNavigation { get; set; } = null!;
+
+        // Expose string properties to preserve existing page rendering code without any modifications!
+        [NotMapped]
+        public string Type 
+        { 
+            get => TypeNavigation?.Name ?? string.Empty;
+            set { }
+        }
+
+        [NotMapped]
+        public string Category 
+        { 
+            get => CategoryNavigation?.Name ?? string.Empty;
+            set { }
+        }
+
         public string ShortDescription { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public bool IsNew { get; set; }
@@ -27,67 +60,78 @@ namespace AILibrary.Services
 
     public class LibraryService
     {
-        private readonly List<LibraryItem> _items = new();
+        private readonly AppDbContext _context;
 
-        public LibraryService(IWebHostEnvironment webHostEnvironment)
+        public LibraryService(AppDbContext context)
         {
-            var jsonPath = Path.Combine(webHostEnvironment.WebRootPath, "data", "library.json");
-            if (File.Exists(jsonPath))
-            {
-                try
-                {
-                    var jsonContent = File.ReadAllText(jsonPath);
-                    var options = new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    };
-                    _items = JsonSerializer.Deserialize<List<LibraryItem>>(jsonContent, options) ?? new();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error reading library JSON: {ex.Message}");
-                }
-            }
+            _context = context;
         }
 
-        public List<LibraryItem> GetAllItems() => _items;
+        public List<LibraryItem> GetAllItems()
+        {
+            return _context.tblLibrary
+                .Include(i => i.TypeNavigation)
+                .Include(i => i.CategoryNavigation)
+                .ToList();
+        }
 
         public List<LibraryItem> GetItemsByType(string type)
         {
-            return _items.Where(i => i.Type.Equals(type, StringComparison.OrdinalIgnoreCase)).ToList();
+            return _context.tblLibrary
+                .Include(i => i.TypeNavigation)
+                .Include(i => i.CategoryNavigation)
+                .Where(i => i.TypeNavigation.Name.ToLower() == type.ToLower())
+                .ToList();
         }
 
         public LibraryItem? GetItemBySlug(string slug)
         {
-            return _items.FirstOrDefault(i => i.Slug.Equals(slug, StringComparison.OrdinalIgnoreCase));
+            return _context.tblLibrary
+                .Include(i => i.TypeNavigation)
+                .Include(i => i.CategoryNavigation)
+                .FirstOrDefault(i => i.Slug.ToLower() == slug.ToLower());
+        }
+
+        public List<LibraryItem> GetRecentItems(int count)
+        {
+            return _context.tblLibrary
+                .Include(i => i.TypeNavigation)
+                .Include(i => i.CategoryNavigation)
+                .Take(count)
+                .ToList();
         }
 
         public List<LibraryItem> SearchItems(string query, string? type = null, string? category = null)
         {
-            var result = _items.AsEnumerable();
+            var result = _context.tblLibrary
+                .Include(i => i.TypeNavigation)
+                .Include(i => i.CategoryNavigation)
+                .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(type))
             {
-                result = result.Where(i => i.Type.Equals(type, StringComparison.OrdinalIgnoreCase));
+                result = result.Where(i => i.TypeNavigation.Name.ToLower() == type.ToLower());
             }
 
             if (!string.IsNullOrWhiteSpace(category))
             {
-                result = result.Where(i => i.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+                result = result.Where(i => i.CategoryNavigation.Name.ToLower() == category.ToLower());
             }
+
+            var items = result.ToList();
 
             if (!string.IsNullOrWhiteSpace(query))
             {
                 var cleanQuery = query.Trim().ToLowerInvariant();
-                result = result.Where(i => 
+                items = items.Where(i => 
                     i.Title.ToLowerInvariant().Contains(cleanQuery) ||
                     i.ShortDescription.ToLowerInvariant().Contains(cleanQuery) ||
                     i.Description.ToLowerInvariant().Contains(cleanQuery) ||
                     i.Tags.Any(t => t.ToLowerInvariant().Contains(cleanQuery))
-                );
+                ).ToList();
             }
 
-            return result.ToList();
+            return items;
         }
     }
 }

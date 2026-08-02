@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>tvb9vxn2e1</Fingerprint>
-      <Integrity>aTe5DTlc6UhIlS6WgMk0BF5xcnlC46JF1/RBGW7kAws=</Integrity>
+      <Fingerprint>wjk9qu5ape</Fingerprint>
+      <Integrity>TDJrOH5vZrR2tuk844qgwW04atYi+4ILJSxnBmSx1rI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\data\library.json'))</OriginalItemSpec>
